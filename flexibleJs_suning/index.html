@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 移动端视口标签 -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 样式初始化 -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/index.css">
+  <!-- mint-ui 样式 -->
+  <link rel="stylesheet" href="css/mint-ui.css">
+  <!-- 引入 flexible.js 文件,将屏幕划分 10 等份 -->
+  <script src="js/flexible.js"></script>
+  <script src="js/vue.js"></script>
+  <!-- mint-ui 组件库 -->
+  <script src="js/mint-ui.js"></script>
+  <title>flexibleJs_suning</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="nav-wrapper">
+      <div class="index-nav" :class="{ 'index-nav-fixed': isFixed }">
+        <div class="nav-bg">
+          <img src="upload/nav-bg.jpg" alt="">
+        </div>
+        <div class="top-type">
+          <div class="top-content">
+            <a href="#">
+              <img src="images/class.png" alt="">
+            </a>
+            <div class="top-head">
+              <a href="#">
+                <img src="upload/head.gif" alt="">
+              </a>
+            </div>
+            <a href="#" class="login">
+              <img src="images/login.png" alt="">
+            </a>
+          </div>
+          <div class="search-bar">
+            <div style="position: relative;">
+              <a href="#"></a>
+              <i class="search-icon"></i>
+              <form action="" style="height: 1.173333rem;">
+                <input type="search" placeholder="双十一 爆款5折抢" class="search-input">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="fixed-type">
+          <div class="fixed-content">
+            <a href="#" class="class">
+              <img src="images/class.png" alt="">
+            </a>
+            <div class="search-bar" style="padding: 0; width: 6.96rem;height: 1.173333rem;">
+              <div style="position: relative; width: 6.96rem;">
+                <a href="#"></a>
+                <i class="search-icon"></i>
+                <form action="" style="height: 1.173333rem;">
+                  <input type="search" placeholder="双十一 爆款5折抢" class="search-input">
+                </form>
+              </div>
+            </div>
+            <a href="#" class="login">
+              <img src="images/login.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="index-wrap">
+      <div class="banner">
+        <img src="images/banner-bg.jpg" alt="">
+        <div class="swipe-wrapper">
+          <mt-swipe :auto="5000">
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image1.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image2.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image3.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image4.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image5.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image6.png" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image7.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+            <mt-swipe-item>
+              <a href="#">
+                <img class="b-image" src="upload/b-image8.jpg" alt="">
+                <img class="b-logo" src="upload/b-logo.png" alt="">
+              </a>
+            </mt-swipe-item>
+          </mt-swipe>
+        </div>
+      </div>
+      <div class="hor-view">
+        <a href="#"><img src="upload/hor-view.webp" alt=""></a>
+      </div>
+      <div class="bottom-nav">
+        <a href="#">
+          <img src="images/bottom-index.png" alt="">
+          <span class="index">首页</span>
+        </a>
+        <a href="#">
+          <img src="images/bottom-class.png" alt="">
+          <span>分类</span>
+        </a>
+        <a href="#">
+          <img src="images/bottom-rank.png" alt="">
+          <span>排行榜</span>
+        </a>
+        <a href="#">
+          <img src="images/bottom-cart.png" alt="">
+          <span>购物车</span>
+        </a>
+        <a href="#">
+          <img src="images/bottom-mine.png" alt="">
+          <span>我的易购</span>
+        </a>
+      </div>
+      <!-- 回到顶部按钮 document.documentElement.scrollTop > 853 显示 -->
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          isFixed: false
+        }
+      },
+      mounted() {
+        window.addEventListener('scroll', this.scrollChange)
+      },
+      methods: {
+        scrollChange() {
+          let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
+          if (scrollTop > 625) {
+            this.isFixed = true
+          } else {
+            this.isFixed = false
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

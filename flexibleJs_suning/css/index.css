@@ -1,0 +1,277 @@
+body {
+    min-width: 320px;
+    max-width: 750px;
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial,Helvetica,STHeiTi,sans-serif;
+    background: #f2f2f2;
+    color: #333;
+}
+
+/* css3 盒子模型 */
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+/* 点击高亮我们需要清除清除设置为 transparent 完成透明 */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+/* 在移动端浏览器默认的外观在 ios 上加上这个属性才能给按钮和输入框自定义样式 */
+input {
+    -webkit-appearance: none;
+}
+/* 禁用长按页面时的弹出菜单 */
+img, a { 
+    -webkit-touch-callout: none; 
+}
+/* 去除聚焦 a, input 时的外边框 */
+*, a:focus, input:focus {
+    outline: 0;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* 苏宁首页设计稿为 750px, 我们设定屏幕尺寸不超过 750px, 并且 flexible.js 将屏幕划分10等份 */
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 75px !important;
+    }
+}
+
+img, input {
+    vertical-align: middle;
+}
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-wrapper {
+    width: 10rem;
+    height: 2.4rem;
+}
+.index-nav {
+    position: relative;
+    background: #FFDB47;
+    width: 10rem;
+    margin: 0 auto;
+    z-index: 100;
+    font-size: .32rem;
+    line-height: 1.173333rem;
+    overflow: hidden;
+}
+.index-nav .nav-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 2.4rem;
+    overflow: hidden;
+}
+.index-nav .nav-bg img {
+    position: absolute;
+    bottom: 0;
+    width: 10rem;
+    height: 3.466667rem;
+}
+.index-nav .top-type {
+    position: relative;
+    width: 10rem;
+}
+.top-content {
+    width: 9.093333rem;
+    height: 1.173333rem;
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.top-head {
+    display: flex;
+    width: 7.6rem;
+    height: 1.173333rem;
+    justify-content: center;
+    align-items: center;
+}
+.top-head img {
+    width: 5.2rem; 
+    height: 1.013333rem;
+}
+.search-bar {
+   width: 10rem;
+   height: 1.226667rem;
+   padding: 0 .32rem; 
+}
+.search-bar a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1.173333rem;
+}
+.search-icon {
+    position: absolute;
+    left: .266667rem;
+    top: .373333rem;
+    width: .48rem;
+    height: .48rem;
+    background: url(../images/search-icon.png) no-repeat;
+    background-size: .48rem .48rem;
+}
+.search-input {
+    border: none;
+    width: 100%;
+    height: .853333rem;
+    line-height: .853333rem;
+    border-radius: .4rem;
+    color: #999;
+    padding: .04rem .266667rem 0 .866667rem;
+    font-size: .373333rem;
+}
+.index-nav .fixed-type {
+    display: none;
+}
+.fixed-content {
+    width: 9.093333rem;
+    height: 1.173333rem;
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.index-nav-fixed {
+    position: fixed;
+    top: 0;
+}
+.index-nav-fixed .top-type {
+    display: none;
+}
+.index-nav-fixed .fixed-type {
+    display: flex;
+    position: relative;
+    width: 10rem;
+}
+.class {
+    width: .48rem;
+    height: .8rem;
+}
+.class img {
+    width: .48rem;
+    height: .8rem;
+}
+.login {
+    width: .48rem;
+    height: .8rem;
+}
+.login img {
+    width: .48rem;
+    height: .8rem;
+}
+
+.index-wrap {
+    position: relative;
+    width: 10rem;
+    height: 26.666667rem;
+}
+.banner {
+    position: relative;
+    height: 3.053333rem;
+}
+.banner>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3.053333rem;
+}
+.swipe-wrapper {
+    position: absolute;
+    width: 9.36rem;
+    height: 3.053333rem;
+    top: 0;
+    left: .32rem;
+}
+.banner a {
+    display: block;
+    position: relative;
+    width: 9.36rem;
+    height: 3.053333rem;
+}
+.b-image {
+    position: absolute;
+    bottom: 0;
+    left: -0.32rem;
+    width: 10rem;
+    height: 4.906667rem;
+}
+.b-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.4rem;
+    height: .666667rem;
+}
+.mint-swipe-items-wrap {
+    border-radius: .32rem;
+}
+/* .mint-swipe-indicators {
+    width: 2.773333rem;
+} */
+.swipe-wrapper .mint-swipe-indicator {
+    margin: 0 .12rem;
+    transition: width .2s;
+}
+.mint-swipe-indicator.is-active {
+    width: .24rem;
+    margin: 0 .053333rem;
+    opacity: 1;
+    border-radius: .106667rem;
+}
+/* hor-view */
+.hor-view {
+    width: 10rem;
+    height: 2.656933rem;
+    display: flex;
+}
+/* bottom nav  */
+.bottom-nav {
+    box-sizing: content-box;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 10rem;
+    height: 1.333333rem;
+    margin: 0 auto;
+    border-top: .013333rem solid #eee;
+    background: #fff;
+}
+.bottom-nav a {
+    display: block;
+    width: 2rem;
+    height: 1.333333rem;
+}
+.bottom-nav a img {
+    width: .64rem;
+    height: .64rem;
+    margin: .16rem auto 0;
+}
+.bottom-nav a span {
+    display: block;
+    font-weight: normal;
+   
+    font-size: .266667rem;
+    text-align: center;
+    line-height: .426667rem;
+    color: #666;
+    
+}
+.bottom-nav a .index {
+    font-weight: bold;
+    color: #000;
+}
