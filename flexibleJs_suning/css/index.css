@@ -5,7 +5,7 @@ body {
     margin: 0 auto;
     line-height: 1.5;
     font-family: Arial,Helvetica,STHeiTi,sans-serif;
-    background: #f2f2f2;
+    background: #f7f7f7;
     color: #333;
 }
 
@@ -30,9 +30,19 @@ img, a {
 *, a:focus, input:focus {
     outline: 0;
 }
+/* 去除 a 链接下划线 */
 a {
     text-decoration: none;
     color: #333;
+}
+/* 去除列表样式 */
+li, ol, ul {
+    list-style: none;
+}
+/* 清除内外边距 */
+* {
+    margin: 0;
+    padding: 0;
 }
 
 /* 苏宁首页设计稿为 750px, 我们设定屏幕尺寸不超过 750px, 并且 flexible.js 将屏幕划分10等份 */
@@ -182,6 +192,7 @@ img {
 .banner {
     position: relative;
     height: 3.053333rem;
+    overflow: hidden;
 }
 .banner>img {
     position: absolute;
@@ -239,6 +250,100 @@ img {
     height: 2.656933rem;
     display: flex;
 }
+/* enter-list */
+.enter-list {
+    width: 10rem;
+    height: 4.266667rem;
+    overflow: hidden;
+    background: url(../images/enter-bg.png);
+    background-size: 10rem 4.266667rem;
+}
+.enter-list ul {
+    width: 10rem;
+    height: 3.733333rem;
+}
+.enter-list a {
+    float: left;
+    width: 2rem;
+    height: 1.893333rem;
+    text-align: center;
+}
+.enter-list a img {
+    display: block;
+    width: 1.12rem;
+    height: 1.12rem;
+    margin: .32rem .44rem 0;
+}
+.enter-list a span {
+    display: block;
+    width: 2rem;
+    height: .373333rem;
+    margin-top: .066667rem;
+    line-height: .373333rem;
+    font-size: .293333rem;
+    color: #666;
+}
+/* 新人优惠 */
+.new {
+    width: 10rem;
+    height: 3.12rem;
+    margin-top: .32rem;
+}
+.new a {
+    float: left;
+    height: 3.12rem;
+}
+/* blank */
+.blank {
+    width: 10rem;
+    height: .32rem;
+}
+/* 限时秒杀、大聚惠 */
+.big-box1 {
+    display: flex;
+    margin: 0 auto;
+    width: 9.36rem;
+    height: 3.44rem;
+    overflow: hidden;
+    border-radius: .16rem .16rem 0 0;
+}
+.big-box1>div {
+    width: 4.666667rem;
+    height: 3.44rem;
+    background-color: #fff;
+}
+.seckill {
+    box-sizing: content-box;
+    border-right: 1px solid #f2f2f2;
+}
+.seckill .title-wrap {
+    display: flex;
+    align-items: flex-end;
+}
+.seckill .title {
+    width: 1.493333rem;
+    height: .533333rem;
+    line-height: .533333rem;
+    font-size: .373333rem;
+    font-weight: 700;
+    margin: .24rem .106667rem 0 .32rem;
+}
+.seckill .count  {
+    height: .533333rem;
+    font-size: .32rem;
+}
+.seckill .count span {
+    display: inline-block;
+    margin: 0 .033333rem;
+    width: .453333rem;
+    height: .373333rem;
+    line-height: .373333rem;
+    text-align: center;
+    background-color: #ffcc00;
+    border-radius: .12rem;
+    font-size: .266667rem;
+    font-weight: bold;
+}
 /* bottom nav  */
 .bottom-nav {
     box-sizing: content-box;
@@ -274,4 +379,21 @@ img {
 .bottom-nav a .index {
     font-weight: bold;
     color: #000;
+}
+/* 回到顶部 */
+#top {
+    position: fixed;
+    width: 1.333333rem;
+    height: 1.333333rem;
+    background: url(../images/back-top.png) no-repeat;
+    background-size: 1.333333rem 1.333333rem;
+    bottom: 2.466667rem;
+    right: .2rem;
+}
+/* to-login */
+.to-login {
+    position: fixed;
+    width: 10rem;
+    height: 1.2rem;
+    bottom: 1.333333rem;
 }

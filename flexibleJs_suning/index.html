@@ -24,12 +24,14 @@
   <div id="app">
     <div class="nav-wrapper">
       <div class="index-nav" :class="{ 'index-nav-fixed': isFixed }">
+        <!-- 导航栏背景 -->
         <div class="nav-bg">
           <img src="upload/nav-bg.jpg" alt="">
         </div>
+        <!-- 顶部导航栏 -->
         <div class="top-type">
           <div class="top-content">
-            <a href="#">
+            <a href="#" class="class">
               <img src="images/class.png" alt="">
             </a>
             <div class="top-head">
@@ -51,6 +53,7 @@
             </div>
           </div>
         </div>
+        <!-- 固定导航栏 -->
         <div class="fixed-type">
           <div class="fixed-content">
             <a href="#" class="class">
@@ -73,10 +76,11 @@
       </div>
     </div>
     <div class="index-wrap">
+      <!-- banner -->
       <div class="banner">
         <img src="images/banner-bg.jpg" alt="">
         <div class="swipe-wrapper">
-          <mt-swipe :auto="5000">
+          <mt-swipe :auto="4000">
             <mt-swipe-item>
               <a href="#">
                 <img class="b-image" src="upload/b-image1.jpg" alt="">
@@ -128,9 +132,88 @@
           </mt-swipe>
         </div>
       </div>
+      <!-- hor-view -->
       <div class="hor-view">
         <a href="#"><img src="upload/hor-view.webp" alt=""></a>
       </div>
+      <!-- enter-list -->
+      <div class="enter-list">
+        <div class="enter-wrapper">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="images/enter-img1.png" alt="">
+                <span>苏宁秒杀</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img2.png" alt="">
+                <span>苏宁超市</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img3.png" alt="">
+                <span>苏宁拼购</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img4.png" alt="">
+                <span>手机数码</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img5.png" alt="">
+                <span>苏宁家电</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img6.png" alt="">
+                <span>免费水果</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img7.png" alt="">
+                <span>super会员</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img8.png" alt="">
+                <span>签到有礼</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img9.png" alt="">
+                <span>领券中心</span>
+              </a>
+              <a href="#">
+                <img src="images/enter-img10.png" alt="">
+                <span>更多频道</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 新人优惠 -->
+      <div class="new">
+        <a href="#" style="width: 50%;padding-right: .026667rem;">
+          <img src="upload/big-new.jpg" alt="">
+        </a>
+        <a href="#" style="width: 25%;">
+          <img src="upload/small-new1.png" alt="">
+        </a>
+        <a href="#" style="width: 25%;padding-left: .026667rem;">
+          <img src="upload/small-new2.png" alt="">
+        </a>
+      </div>
+      <!-- 留空 -->
+      <div class="blank"></div>
+      <!-- 限时秒杀、大聚惠 -->
+      <div class="big-box1">
+        <div class="seckill">
+          <a href="#">
+            <div class="title-wrap">
+              <div class="title">限时秒杀</div>
+              <div class="count">
+                <span class="hour">01</span>:<span class="minute">29</span>:<span class="second">04</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="bigdiscount"></div>
+      </div>
+      <!-- 底部导航 -->
       <div class="bottom-nav">
         <a href="#">
           <img src="images/bottom-index.png" alt="">
@@ -153,7 +236,14 @@
           <span>我的易购</span>
         </a>
       </div>
-      <!-- 回到顶部按钮 document.documentElement.scrollTop > 853 显示 -->
+      <!-- 回到顶部按钮 -->
+      <div id="top" @click="backTop" :style="showTop ? 'display: block;' : 'display: none;'"></div>
+      <!-- to-login -->
+      <div class="to-login">
+        <a href="#">
+          <img src="images/to-login.png" alt="">
+        </a>
+      </div>
     </div>
   </div>
 
@@ -162,7 +252,8 @@
       el: '#app',
       data() {
         return {
-          isFixed: false
+          isFixed: false,
+          showTop: false
         }
       },
       mounted() {
@@ -176,6 +267,16 @@
           } else {
             this.isFixed = false
           }
+          if (scrollTop > 853) {
+            this.showTop = true
+          } else {
+            this.showTop = false
+          }
+        },
+        backTop() {
+          document.documentElement.scrollTop = 0
+          window.pageYOffset = 0
+          document.body.scrollTop = 0
         }
       }
     })
