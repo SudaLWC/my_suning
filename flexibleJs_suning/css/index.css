@@ -6,6 +6,7 @@ body {
     line-height: 1.5;
     font-family: Arial,Helvetica,STHeiTi,sans-serif;
     background: #f7f7f7;
+    /* background-color: pink; */
     color: #333;
 }
 
@@ -231,10 +232,14 @@ img {
 .mint-swipe-items-wrap {
     border-radius: .32rem;
 }
-/* .mint-swipe-indicators {
-    width: 2.773333rem;
-} */
+.mint-swipe-indicators {
+    line-height: .106667rem;
+    bottom: .16rem !important;
+}
 .swipe-wrapper .mint-swipe-indicator {
+    width: .106667rem;
+    height: .106667rem;
+    line-height: .106667rem;
     margin: 0 .12rem;
     transition: width .2s;
 }
@@ -308,6 +313,7 @@ img {
     border-radius: .16rem .16rem 0 0;
 }
 .big-box1>div {
+    position: relative;
     width: 4.666667rem;
     height: 3.44rem;
     background-color: #fff;
@@ -316,11 +322,11 @@ img {
     box-sizing: content-box;
     border-right: 1px solid #f2f2f2;
 }
-.seckill .title-wrap {
+.title-wrap {
     display: flex;
     align-items: flex-end;
 }
-.seckill .title {
+.title {
     width: 1.493333rem;
     height: .533333rem;
     line-height: .533333rem;
@@ -343,6 +349,64 @@ img {
     border-radius: .12rem;
     font-size: .266667rem;
     font-weight: bold;
+}
+.desc {
+    font-size: .32rem;
+    color: #999;
+    overflow: hidden;
+    margin: .053333rem 0 0 .32rem;
+    width: 4rem;
+    height: .4rem;
+    line-height: .4rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.img-wrapper {
+    position: absolute;
+    width: 1.866667rem;
+    height: 2.133333rem;
+    top: 1.306667rem;
+    left: .32rem;
+}
+.right-wrapper {
+    left: 2.48rem;
+}
+.img-wrapper img {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 auto;
+    background: none;
+}
+.img-desc {
+    position: absolute;
+    bottom: .106667rem;
+    left: -0.066667rem;
+    box-sizing: border-box;
+    background-image: url(../images/img-desc.png);
+    background-size: 2rem .72rem;
+    width: 2rem;
+    height: .72rem;
+    padding-top: .293333rem;
+    line-height: .426667rem;
+    overflow: hidden;
+    font-size: .266667rem;
+    text-align: center;
+}
+/* 新品首发、苏宁拼购 */
+.big-box2 {
+    display: flex;
+    margin: 0 auto;
+    width: 9.36rem;
+    height: 3.44rem;
+    overflow: hidden;
+    /* border-radius: .16rem .16rem 0 0; */
+}
+.big-box2>div {
+    position: relative;
+    width: 4.666667rem;
+    height: 3.44rem;
+    background-color: #fff;
 }
 /* bottom nav  */
 .bottom-nav {
@@ -396,4 +460,12 @@ img {
     width: 10rem;
     height: 1.2rem;
     bottom: 1.333333rem;
+}
+/* 签到红包 */
+.gift {
+    position: fixed;
+    bottom: 8.666667rem;
+    right: .133333rem;
+    width: 1.333333rem;
+    height: 1.333333rem;
 }
