@@ -5,8 +5,8 @@ body {
     margin: 0 auto;
     line-height: 1.5;
     font-family: Arial,Helvetica,STHeiTi,sans-serif;
-    background: #f7f7f7;
-    /* background-color: pink; */
+    /* background: #f7f7f7; */
+    background-color: pink;
     color: #333;
 }
 
@@ -407,6 +407,113 @@ img {
     width: 4.666667rem;
     height: 3.44rem;
     background-color: #fff;
+}
+.space {
+    width: 9.36rem;
+    height: 1px;
+    margin: 0 auto;
+    background: #f2f2f2;
+}
+/* 为您推荐 */
+.for-you {
+    display: flex;
+    width: 9.36rem;
+    height: 2.293333rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 0 0 .16rem .16rem;
+}
+.for-you .left-title {
+    width: 2.306667rem;
+    height: 2.293333rem;
+    padding: .626667rem .24rem 0;
+}
+.left-title p:nth-child(1) {
+    width: 1.826667rem;
+    height: .6rem;
+    line-height: .6rem;
+    font-size: .426667rem;
+    font-weight: bold;
+    color: #444;
+}
+.left-title p:nth-child(2) {
+    width: 1.826667rem;
+    height: .426667rem;
+    line-height: .426667rem;
+    font-size: .32rem;
+    color: #999;
+}
+.right-items {
+    display: flex;
+    width: 6.773333rem;
+    height: 2.293333rem;
+    justify-content: space-between;
+}
+.right-items .item {
+    width: 1.6rem;
+    height: 2.293333rem;
+}
+.right-items .item img {
+    width: 1.333333rem;
+    height: 1.333333rem;
+    margin: .24rem 0 0 .133333rem;
+}
+.right-items .item p {
+    margin-top: .08rem;
+    font-size: .293333rem;
+    text-align: center;
+    height: .4rem;
+    line-height: .4rem;
+}
+/* 大促 */
+.promotion {
+    width: 10rem;
+}
+.promotion>div {
+    padding: .133333rem 0 .2rem;
+}
+.hc-wrapper {
+    width: 9.36rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.hc-item {
+    position: relative;
+    width: 2.226667rem;
+    height: 3.24rem;
+    margin-bottom: .173333rem;
+}
+.hc-item img:nth-child(2) {
+    position: absolute;
+    top: .106667rem;
+    left: .173333rem;
+    width: 1.866667rem;
+    height: 1.866667rem;
+}
+.hc-item p:nth-of-type(1) {
+    position: absolute;
+    left: .24rem;
+    top: 2.173333rem;
+    width: 1.733333rem;
+    height: .426667rem;
+    font-size: .346667rem;
+    color: #fff;
+    line-height: .426667rem;
+    text-align: center;
+}
+.hc-item p:nth-of-type(2) {
+    position: absolute;
+    left: .18rem;
+    top: 2.653333rem;
+    width: 1.866667rem;
+    height: .426667rem;
+    line-height: .426667rem;
+    font-size: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: .213333rem;
 }
 /* bottom nav  */
 .bottom-nav {
