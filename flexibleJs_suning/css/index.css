@@ -5,8 +5,8 @@ body {
     margin: 0 auto;
     line-height: 1.5;
     font-family: Arial,Helvetica,STHeiTi,sans-serif;
-    /* background: #f7f7f7; */
-    background-color: pink;
+    background: #f7f7f7;
+    /* background-color: #302148; */
     color: #333;
 }
 
@@ -188,7 +188,6 @@ img {
 .index-wrap {
     position: relative;
     width: 10rem;
-    height: 26.666667rem;
 }
 .banner {
     position: relative;
@@ -408,6 +407,10 @@ img {
     height: 3.44rem;
     background-color: #fff;
 }
+.new-launch {
+    box-sizing: content-box;
+    border-right: 1px solid #f2f2f2;
+}
 .space {
     width: 9.36rem;
     height: 1px;
@@ -465,6 +468,9 @@ img {
     text-align: center;
     height: .4rem;
     line-height: .4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 /* 大促 */
 .promotion {
@@ -510,10 +516,223 @@ img {
     width: 1.866667rem;
     height: .426667rem;
     line-height: .426667rem;
-    font-size: 20px;
+    font-size: .266667rem;
     text-align: center;
     background-color: #fff;
     border-radius: .213333rem;
+}
+/* 推荐榜单 */
+.new-bd {
+    padding-bottom: .173333rem;
+}
+.title-img {
+    width: 10rem;
+    height: .8rem;
+}
+.bd-three {
+    width: 9.36rem;
+    margin: 0 auto .173333rem;
+    display: flex;
+    justify-content: space-between;
+}
+.bd-three-item {
+    position: relative;
+    width: 3.013333rem;
+    height: 3.546667rem;
+    border-radius: .16rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+.item-bg {
+    position: absolute;
+    width: 3.013333rem;
+    height: 1.24rem;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 0 .16rem .16rem;
+}
+.pro-img {
+    position: relative;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin: .2rem auto 0;
+}
+.three-name {
+    position: absolute;
+    width: 100%;
+    height: .453333rem;
+    top: 2.106667rem;
+    left: 0;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+}
+.three-name span {
+    box-sizing: border-box;
+    display: block;
+    height: .453333rem;
+    font-size: .293333rem;
+    line-height: .4rem;
+    min-width: 1.333333rem;
+    max-width: 2.666667rem;
+    background: #FFF;
+    color: #D9A87A;
+    border: .026667rem solid #D9A87A;
+    border-radius: .226667rem;
+    text-align: center;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.mySwiper .three-name span {
+    color: #FB7F0A;
+    border: .026667rem solid #FB7F0A;
+}
+.three-title {
+    position: relative;
+    width: 2.933333rem;
+    height: .426667rem;
+    font-size: .346667rem;
+    line-height: .426667rem;
+    margin: .413333rem auto .04rem;
+    color: #FFFFFF;
+    text-align: center;
+    overflow: hidden;
+}
+.three-desc {
+    position: relative;
+    width: 2.666667rem;
+    height: .32rem;
+    line-height: .32rem;
+    font-size: .293333rem;
+    margin: 0 auto;
+    color: #FFFFFF;
+    opacity: .8;
+    text-align: center;
+    overflow: hidden;
+}
+.bd-two {
+    display: -webkit-flex;
+    display: flex;
+    width: 9.36rem;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: .16rem;
+    background: #FFF;
+    overflow: hidden;
+}
+/* 猜你喜欢 */
+.guessUlike {
+    width: 10rem;
+    margin-bottom: 1.346667rem;
+}
+.pro-list-wrapper {
+    width: 10rem;
+    background: #f7f7f7;
+}
+.pro-list {
+    width: 9.36rem;
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.left-list,
+.right-list {
+    width: 4.56rem;
+}
+.product {
+    position: relative;
+    width: 4.56rem;
+    height: 7.226667rem;
+    border-radius: .16rem;
+    overflow: hidden;
+    padding-bottom: .186667rem;
+    margin-bottom: .24rem;
+    background-color: #fff;
+}
+.product .proImg {
+    width: 4.56rem;
+    height: 4.56rem;
+}
+.pro-title {
+    margin: .24rem auto 0;
+    width: 4.24rem;
+    height: .893333rem;
+    line-height: 1.5;
+    font-size: .346667rem;
+    font-weight: bold;
+    /* 标题超过两行省略 */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.cuxiao-tag {
+    display: flex;
+    width: 3.586667rem;
+    height: .32rem;
+    margin: .146667rem .16rem .32rem;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+.cuxiao-tag img {
+    display: block;
+    margin-right: .08rem;
+    height: .32rem;
+    margin-bottom: .026667rem;
+}
+.tag1 {
+    width: .64rem;
+}
+.tag2 {
+    width: 1.706667rem;
+}
+.cuxiao-tag .cx-text {
+    margin: 0 .04rem .026667rem .026667rem;
+    border-radius: .08rem;
+    height: .32rem;
+    padding: .026667rem .16rem;
+    line-height: .266667rem;
+    font-size: .24rem;
+    border: 1px solid #FFBB00;
+    background: #FEFBEE;
+}
+.pro-price {
+    height: .506667rem;
+    line-height: .506667rem;
+    margin-left: .16rem;
+}
+.real-price {
+    display: -webkit-flex;
+    display: flex;
+    height: .506667rem;
+    font-size: .32rem;
+    color: #FF4422;
+    font-weight: bold;
+    align-items: flex-end;
+}
+.real-price .flag {
+    line-height: .373333rem;
+}
+.pre-price {
+    font-size: .48rem;
+    line-height: .48rem;
+}
+.last-price {
+    line-height: .373333rem;
+}
+.price-comments {
+    color: #999999;
+    margin-left: .173333rem;
+    font-weight: normal;
+    font-size: .266667rem;
 }
 /* bottom nav  */
 .bottom-nav {
@@ -523,6 +742,7 @@ img {
     bottom: 0;
     width: 10rem;
     height: 1.333333rem;
+    z-index: 199;
     margin: 0 auto;
     border-top: .013333rem solid #eee;
     background: #fff;
@@ -567,6 +787,7 @@ img {
     width: 10rem;
     height: 1.2rem;
     bottom: 1.333333rem;
+    z-index: 1;
 }
 /* 签到红包 */
 .gift {
@@ -575,4 +796,8 @@ img {
     right: .133333rem;
     width: 1.333333rem;
     height: 1.333333rem;
+}
+
+[v-cloak] {
+    display: none;
 }

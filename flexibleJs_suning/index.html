@@ -12,11 +12,16 @@
   <link rel="stylesheet" href="css/index.css">
   <!-- mint-ui 样式 -->
   <link rel="stylesheet" href="css/mint-ui.css">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="./css/swiper.min.css">
+
   <!-- 引入 flexible.js 文件,将屏幕划分 10 等份 -->
   <script src="js/flexible.js"></script>
   <script src="js/vue.js"></script>
   <!-- mint-ui 组件库 -->
   <script src="js/mint-ui.js"></script>
+  <!-- Swiper JS -->
+  <script src="./js/swiper.min.js"></script>
   <title>flexibleJs_suning</title>
 </head>
 
@@ -237,7 +242,7 @@
       </div>
       <!-- 新品首发、苏宁拼购 -->
       <div class="big-box2">
-        <div>
+        <div class="new-launch">
           <a href="#">
             <div class="title-wrap">
               <div class="title">新品首发</div>
@@ -353,47 +358,133 @@
         </div>
       </div>
       <!-- 推荐榜单 -->
-      <div class="new-bd"></div>
+      <div class="new-bd">
+        <div class="title-img">
+          <a href="#">
+            <img src="images/title-img.png" alt="">
+          </a>
+        </div>
+        <div class="newbd-list">
+          <div class="bd-three">
+            <!-- 1 -->
+            <div class="bd-three-item">
+              <a href="#">
+                <img class="item-bg" src="images/item-bg-normal.png" alt="">
+                <img class="pro-img" src="images/pro-img1.webp" alt="">
+                <p class="three-name">
+                  <span>趋势榜</span>
+                </p>
+                <p class="three-title">回味甘醇白酒榜</p>
+                <p class="three-desc">本周趋势上升76%</p>
+              </a>
+            </div>
+            <!-- 2,swiper-->
+            <div class="bd-three-item mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img class="item-bg" src="images/item-bg-swiper.png" alt="">
+                    <img class="pro-img" src="images/pro-img2.webp" alt="">
+                    <p class="three-name">
+                      <span>趋势榜</span>
+                    </p>
+                    <p class="three-title">多功能电火锅榜</p>
+                    <p class="three-desc">本月趋势上升97%</p>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img class="item-bg" src="images/item-bg-swiper.png" alt="">
+                    <img class="pro-img" src="images/pro-img3.webp" alt="">
+                    <p class="three-name">
+                      <span>人气榜</span>
+                    </p>
+                    <p class="three-title">车载摄像头榜</p>
+                    <p class="three-desc">今日热销爆款</p>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img class="item-bg" src="images/item-bg-swiper.png" alt="">
+                    <img class="pro-img" src="images/pro-img4.webp" alt="">
+                    <p class="three-name">
+                      <span>人气榜</span>
+                    </p>
+                    <p class="three-title">品质书写榜</p>
+                    <p class="three-desc">卖爆2033件</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="bd-three-item">
+              <a href="#">
+                <img class="item-bg" src="images/item-bg-normal.png" alt="">
+                <img class="pro-img" src="images/pro-img5.webp" alt="">
+                <p class="three-name">
+                  <span>人气榜</span>
+                </p>
+                <p class="three-title">冬日取暖器榜</p>
+                <p class="three-desc">卖爆7750件</p>
+              </a>
+            </div>
+          </div>
+          <div class="bd-two"></div>
+        </div>
+      </div>
       <div class="blank"></div>
       <!-- 猜你喜欢 -->
       <div class="guessUlike">
         <a href="#">
-          <img src="" alt="">
+          <img src="images/guessUlike-title.webp" alt="">
         </a>
-        <div class="pro-list"></div>
+        <div class="pro-list-wrapper" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading">
+          <div class="pro-list">
+            <div class="left-list">
+              <div class="product" v-for="(item,i) in productsl" :key="i">
+                <a href="#" v-cloak>
+                  <img class="proImg" :src="item.proImg" alt="">
+                  <p class="pro-title">{{item.proTitle}}</p>
+                  <p class="cuxiao-tag">
+                    <img :class="item.tagType" :src="item.tagImg" alt="" v-if="item.tagImg">
+                    <span class="cx-text" v-for="(text,ti) in item.cxText" :key="ti">{{text}}</span>
+                  </p>
+                  <div class="pro-price">
+                    <div class="real-price">
+                      <span class="flag">￥</span>
+                      <span class="pre-price">{{item.realPrice.prePrice}}</span>
+                      <span class="last-price">{{item.realPrice.lastPrice}}</span>
+                      <span class="price-comments">{{item.realPrice.priceComments}}</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="right-list">
+              <div class="product" v-for="(item,i) in productsr" :key="i">
+                <a href="#" v-cloak>
+                  <img class="proImg" :src="item.proImg" alt="">
+                  <p class="pro-title">{{item.proTitle}}</p>
+                  <p class="cuxiao-tag">
+                    <img :class="item.tagType" :src="item.tagImg" alt="" v-if="item.tagImg">
+                    <span class="cx-text" v-for="(text,ti) in item.cxText" :key="ti">{{text}}</span>
+                  </p>
+                  <div class="pro-price">
+                    <div class="real-price">
+                      <span class="flag">￥</span>
+                      <span class="pre-price">{{item.realPrice.prePrice}}</span>
+                      <span class="last-price">{{item.realPrice.lastPrice}}</span>
+                      <span class="price-comments">{{item.realPrice.priceComments}}</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
         <img src="images/bottom-snlogo.png" alt="">
       </div>
-      <div>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-        <p>开发中</p>
-      </div>
+
       <!-- 底部导航 -->
       <div class="bottom-nav">
         <a href="#">
@@ -440,7 +531,135 @@
       data() {
         return {
           isFixed: false,
-          showTop: false
+          showTop: false,
+          loading: false,
+          productsl: [],
+          productsr: [],
+          productsL: [
+            {
+              proImg: 'upload/pro-img1.webp',
+              proTitle: '好想你 香酥脆枣无核去核红枣办公室小吃零食 脆灰枣 230g',
+              tagImg: '',
+              cxText: ['包邮', '满2件免1件'],
+              realPrice: {
+                prePrice: '29',
+                lastPrice: '.9',
+                priceComments: '1900+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img2.webp',
+              proTitle: 'realme 真我Buds 经典版(有线耳机) 黑色 OPPO提供售后支持',
+              tagImg: 'images/tag-img1.png',
+              tagType: 'tag1',
+              cxText: [],
+              realPrice: {
+                prePrice: '99',
+                lastPrice: '',
+                priceComments: '10+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img3.webp',
+              proTitle: '海尔(Haier)515升 对开门冰箱 AFR精控多路送风 DEO净味 双变频节能 家用电冰箱 BCD-515WDPD',
+              tagImg: 'images/tag-img1.png',
+              tagType: 'tag1',
+              cxText: ['大聚惠'],
+              realPrice: {
+                prePrice: '2899',
+                lastPrice: '',
+                priceComments: '3.1万+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img4.webp',
+              proTitle: '茅台王子酒(金王子) 53度500ml 单瓶装 酱香型白酒',
+              tagImg: 'images/tag-img1.png',
+              tagType: 'tag1',
+              cxText: ['大聚惠', '每338-70'],
+              realPrice: {
+                prePrice: '338',
+                lastPrice: '',
+                priceComments: '3100+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img5.webp',
+              proTitle: 'Apple iPhone 13 256G 星光色 移动联通电信5G全网通手机',
+              tagImg: 'images/tag-img1.png',
+              tagType: 'tag1',
+              cxText: ['大聚惠'],
+              realPrice: {
+                prePrice: '6799',
+                lastPrice: '',
+                priceComments: '800+评价'
+              }
+            }
+          ],
+          // 
+          productsR: [
+            {
+              proImg: 'upload/pro-img6.webp',
+              proTitle: '花王Merries加大号拉拉裤XL号XL38片(12kg-22kg)',
+              tagImg: 'images/tag-img2.png',
+              tagType: 'tag2',
+              cxText: ['大聚惠'],
+              realPrice: {
+                prePrice: '92',
+                lastPrice: '',
+                priceComments: '3.7万+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img7.webp',
+              proTitle: '江赫医用外科口罩独立包装100只成人一次性医用口罩灭菌无菌级防尘阻菌透气三层防护环氧乙烷灭菌消毒三层防护每只1袋装 100片',
+              tagImg: '',
+              tagType: '',
+              cxText: ['满赠', '满1件打7.5折', '赠'],
+              realPrice: {
+                prePrice: '36',
+                lastPrice: '.9',
+                priceComments: '4600+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img8.webp',
+              proTitle: '【S】西门子(SIEMENS)10公斤 全自动变频滚筒洗衣机 家用大容量 高温筒清洁 智能感应 WM12P2682W',
+              tagImg: 'images/tag-img1.png',
+              tagType: 'tag1',
+              cxText: ['大聚惠', '赠'],
+              realPrice: {
+                prePrice: '3699',
+                lastPrice: '',
+                priceComments: '5.6万+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img9.webp',
+              proTitle: '100只贻贝一次性医用面罩防护隔离成人儿童防飞沫口沫面罩三层防护含熔喷布防护隔离面罩',
+              // tagImg: 'images/tag-img1.png',
+              // tagType: 'tag1',
+              // cxText: ['大聚惠', '赠'],
+              realPrice: {
+                prePrice: '12',
+                lastPrice: '.9',
+                priceComments: '16万+评价'
+              }
+            },
+            {
+              proImg: 'upload/pro-img10.webp',
+              proTitle: '美的(Midea) 新一级 极酷升级版 1.5匹 大风口变频冷暖壁挂式空调挂机 以旧换新KFR-35GW/N8VHA1',
+              tagImg: 'images/tag-img1.png',
+              tagType: 'tag1',
+              cxText: ['领券1000-30', '赠'],
+              realPrice: {
+                prePrice: '2599',
+                lastPrice: '',
+                priceComments: '3.9万+评价'
+              }
+            },
+          ]
+          // 
         }
       },
       mounted() {
@@ -464,8 +683,25 @@
           document.documentElement.scrollTop = 0
           window.pageYOffset = 0
           document.body.scrollTop = 0
+        },
+        loadMore() {
+          setTimeout(() => {
+            this.productsl = this.productsL
+            this.productsr = this.productsR
+            // console.log(this.productsL);
+            this.loading = true
+          }, 2500);
         }
       }
+    })
+    new Swiper('.mySwiper', {
+      direction: 'vertical',
+      autoplay: {
+        delay: 4000
+      },
+      loop: true,
+      allowTouchMove: false,
+      speed: 1000
     })
   </script>
 </body>
