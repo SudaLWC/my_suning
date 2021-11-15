@@ -342,7 +342,7 @@ img {
     margin: 0 .033333rem;
     width: .453333rem;
     height: .373333rem;
-    line-height: .373333rem;
+    line-height: 1.4;
     text-align: center;
     background-color: #ffcc00;
     border-radius: .12rem;

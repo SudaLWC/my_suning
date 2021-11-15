@@ -22,6 +22,7 @@
   <script src="js/mint-ui.js"></script>
   <!-- Swiper JS -->
   <script src="./js/swiper.min.js"></script>
+  <script src="./js/dayjs.min.js"></script>
   <title>flexibleJs_suning</title>
 </head>
 
@@ -210,8 +211,8 @@
           <a href="#">
             <div class="title-wrap">
               <div class="title">限时秒杀</div>
-              <div class="count">
-                <span class="hour">01</span>:<span class="minute">29</span>:<span class="second">04</span>
+              <div class="count" v-cloak>
+                <span class="hour">{{h}}</span>:<span class="minute">{{m}}</span>:<span class="second">{{s}}</span>
               </div>
             </div>
             <p class="desc">人气好货限时抢</p>
@@ -240,6 +241,8 @@
           </a>
         </div>
       </div>
+      <!-- 灰色间隔条 -->
+      <div class="space"></div>
       <!-- 新品首发、苏宁拼购 -->
       <div class="big-box2">
         <div class="new-launch">
@@ -533,6 +536,10 @@
           isFixed: false,
           showTop: false,
           loading: false,
+          d: 0,
+          h: 0,
+          m: 0,
+          s: 0,
           productsl: [],
           productsr: [],
           productsL: [
@@ -662,6 +669,9 @@
           // 
         }
       },
+      created() {
+        this.countDown()
+      },
       mounted() {
         window.addEventListener('scroll', this.scrollChange)
       },
@@ -691,6 +701,30 @@
             // console.log(this.productsL);
             this.loading = true
           }, 2500);
+        },
+        countDown() {
+          // 设置当天中午12点为目标时间,超过则设为明天中午12点
+          let mytime = 0
+          if (dayjs().hour() < 12) {
+            mytime = dayjs().hour(12).minute(0).second(0).millisecond(0)
+          } else {
+            mytime = dayjs().hour(12).minute(0).second(0).millisecond(0).add(24, 'hour')
+          }
+          this.d = mytime - dayjs()
+          setInterval(() => {
+            this.d -= 1000
+          }, 1000)
+        }
+      },
+      watch: {
+        d(newV) {
+          this.h = dayjs().hour(Math.floor(newV / (1000 * 60 * 60) % 24)).format('HH')
+          this.m = dayjs().minute(Math.floor(newV / (1000 * 60) % 60)).format('mm')
+          this.s = dayjs().second(Math.floor(newV / 1000 % 60)).format('ss')
+          // console.log(this.d, this.h, this.m, this.s)
+          if (newV == 0) {
+            this.countDown()
+          }
         }
       }
     })
